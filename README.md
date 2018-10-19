@@ -1,6 +1,6 @@
 # Relacionamentos: composições e heranças
 
-_Classroom link:_ <https://classroom.github.com/a/>
+_Classroom link:_ <https://classroom.github.com/a/QNsSA3v3>
 
 ## Modelar e implementar respeitando os princípios de Orientação a Objetos
 
@@ -9,7 +9,7 @@ _Classroom link:_ <https://classroom.github.com/a/>
 - composições de objetos (tem, pertence a)
 - herança, super e subtipagem (é um, é uma)
 
-#### Prazo: 2018-10-28 Peso: 1.0 pt
+#### Prazo: 2018-11-04 Peso: 1.0 pt
 
 **Regras**
 
@@ -17,10 +17,11 @@ _Classroom link:_ <https://classroom.github.com/a/>
 * Os Casos de Teste podem ser corrigidos, mas a especificação não pode ser alterada;
 * É recomendado o uso da IDE Eclipse, mas não obrigatório. Caso utilizada, apenas o conteúdo da pasta `src` deve ser _upado_, não enviar o projeto ou _workspace_ inteiro;
 * Podem ser usadas as classes feitas nos trabalhos anteriores ou em aula, como `Bag`, `List`, etc;
-* Prazo até 28 de outubro, domingo, com _permission granted to **burn the midnight oil**_.
+* Prazo até 04 de novembro, domingo, com _permission granted to **burn the midnight oil**_.
 
-### Implementar  (0.5 pts)
 
+
+### Implementar Sistema de Cadastro de Eventos/Atividades  (0.5 pts)
 
 Implementar conforme os Casos de Teste.
 
@@ -170,8 +171,6 @@ Com base na atividade anterior, refatorar para eliminar os `enum`s de tipo usand
 
 * * *
 
-> A good programmer looks
-> both ways before crossing
-> a one-way street.
+> A good programmer looks both ways before crossing a one-way street.
 >
 > -- Unknown

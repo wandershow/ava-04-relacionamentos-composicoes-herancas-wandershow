@@ -60,19 +60,16 @@ System.out.println(atv1.getEvento() == ev1);
 System.out.println(atv2.getEvento() == ev1);
 
 // outros tipo de eventos e atividades
-Evento ev2 = new Evento("XIV Escola Regional de Banco de Dados", "Rio Grande", Evento.Tipo.Escola);
-Atividade atv3 = ev2.novaAtividade("Gerenciando dados em fluxos com Apache Storm", "Guilherme dal Bianco (UFFS)", 20, 4, Atividade.Tipo.Oficina);
-Atividade atv4 = ev2.novaAtividade("Nomes, termos, conceitos, significado e outras palavras", "Renata Vieira (PUCRS).", Atividade.Tipo.Palestra);
+Evento ev2 = new Evento("Escola Regional de Banco de Dados", "Bagé", Evento.Tipo.Escola);
+Atividade atv3 = ev2.novaAtividade("BigData com Apache Hadoop", "Paulo Silva", 20, 4, Atividade.Tipo.Oficina);
+Atividade atv4 = ev2.novaAtividade("Data Science: uma introdução", "Maria Santos", Atividade.Tipo.Palestra);
 
 // dados da atividade:
-System.out.println(atv3.getDescricao().equals("Gerenciando dados em fluxos com Apache Storm", "Guilherme dal Bianco (UFFS)"));
-System.out.println(atv3.getMinistrante().equals("Guilherme dal Bianco (UFFS)"));
+System.out.println(atv3.getDescricao().equals("BigData com Apache Hadoop"));
+System.out.println(atv3.getMinistrante().equals("Paulo Silva"));
 System.out.println(atv3.getVagas() == 20);
 System.out.println(atv3.getHoras() == 4);
 System.out.println(atv3.getTipo() == Atividade.Tipo.Oficina);
-
-System.out.println(atv4.getVagas() == 0);
-System.out.println(atv4.getHoras() == 0);
 
 // um evento que abriga (tem) outros eventos:
 Evento ev3 = new Evento("3º Salão de Pesquisa, Extensão e Ensino do IFRS", "Bento Gonçalves", Evento.Tipo.Salao);
@@ -152,15 +149,26 @@ try {
 }
 
 // eventos satélite permitem inscrição
-sat1.inscrever("Laforge");
+sat1.inscrever("Geordi Laforge");
 
 // eles não tem limite de inscritos
 // e tem todas as propriedades que um inscrito em atividade
-System.out.println(sat1.getInscritos()[0].getNome().equals("Laforge"));
+System.out.println(sat1.getInscritos()[0].getNome().equals("Geordi Laforge"));
 Inscrito insc3 = sat1.getInscritos()[0];
 Chave chave3 = insc3.getChave();
 System.out.println(insc3 != null);
 System.out.println(chave3 != null);
+System.out.println(sat1.getQuantidadeInscritos() == 1);
+// esta atividade não tem limite de vagas nem carga horária
+System.out.println(atv4.getVagas() == 0);
+System.out.println(atv4.getHoras() == 0);
+System.out.println(atv4.getVagasRemanescentes() == 0);
+System.out.println(atv4.getTipo() == Atividade.Tipo.Palestra);
+// então não há limite de inscrições
+atv4.inscrever("Beverly Crusher");
+atv4.inscrever("Deanna Troi");
+System.out.println(atv4.getInscritos().length == 2);
+System.out.println(atv4.getQuantidadeInscritos() == 2);
 ```
 
 

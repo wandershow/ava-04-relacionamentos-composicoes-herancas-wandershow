@@ -1,6 +1,6 @@
 # Relacionamentos: composições e heranças
 
-_Classroom link:_ <https://classroom.github.com/a/>
+_Classroom link:_ <https://classroom.github.com/a/QNsSA3v3>
 
 ## Modelar e implementar respeitando os princípios de Orientação a Objetos
 

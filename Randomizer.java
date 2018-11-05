@@ -1,4 +1,4 @@
-package trabalho;
+package heranca;
 
 public class Randomizer {
 
@@ -62,9 +62,6 @@ public class Randomizer {
 		}
 		return senha;
 }
-	
-	
-	
-	
+
 	
 }

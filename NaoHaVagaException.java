@@ -1,10 +1,9 @@
-package trabalho;
+package heranca;
 
+public class NaoHaVagaException extends RuntimeException {
 
-	public class NaoHaVagaException extends RuntimeException {
-
-		public NaoHaVagaException(String arg) {
-			super(arg);
+	public NaoHaVagaException(String arg) {
+		super(arg);
 	}
-	
+
 }

@@ -1,79 +1,80 @@
-package trabalho;
+package heranca;
 
-public class Evento {
-	private String nome;
+public abstract class Evento {
+	
 	private String cidade;
-	private Tipo tipo;
+	private String nome;
 	private List atividades = new List();
-	private List eventoSatelite = new List();
+	private List eventosSatelites = new List();
 
-	public enum Tipo {
-		Semana, Escola, Salao, Seminario, Mostra;
-	}
-
-	public Evento(String nome, String cidade, Tipo tipo) {
+	Evento(String nome, String cidade){
 		this.nome = nome;
 		this.cidade = cidade;
-		this.tipo = tipo;
 	}
-
-	public Object getNome() {
-
-		return nome;
-	}
-
-	public Object getCidade() {
-
-		return cidade;
-	}
-
-	public Tipo getTipo() {
-
-		return tipo;
-	}
-
-	public Atividade novaAtividade(String descricao, String ministrante, int vagas, int horas, Atividade.Tipo tipo) {
-		Atividade atividade = new Atividade(descricao, ministrante, vagas, horas, tipo, this);
-		atividades.append(atividade);
+	
+	public abstract String getTipo();
+	
+	public Atividade[] getAtividades() {
+		Atividade[] atividade = new Atividade[atividades.count()];
+		for (int i = 0; i < atividade.length; i++) {
+			atividade[i] = (Atividade) atividades.get(i);
+		}
 		return atividade;
 	}
 
-	public Atividade novaAtividade(String descricao, int vagas, Atividade.Tipo tipo) {
-		return novaAtividade(descricao, null, vagas, 0, tipo);
+	public String getCidade() {
+		return cidade;
 	}
 
-	public Atividade novaAtividade(String descricao, int vagas, int horas, Atividade.Tipo tipo) {
-		return novaAtividade(descricao, null, vagas, horas, tipo);
+	public String getNome() {
+		return nome;
 	}
 
-	public Atividade novaAtividade(String descricao, String ministrante, Atividade.Tipo tipo) {
-		return novaAtividade(descricao, ministrante, 0, 0, tipo);
+	public Atividade novoSeminario(String nome, int vagas) {
+		Atividade atividade = new Seminario(nome, vagas, this);
+		this.atividades.append(atividade);
+		return atividade;
 	}
 
-	
-
-	public Atividade[] getAtividades() {
-		Atividade[] tmp = new Atividade[this.atividades.count()];
-		for (int i = 0; i < tmp.length; i++) {
-			tmp[i] = (Atividade) atividades.get(i);
-		}
-		return tmp;
+	public Atividade novoMinicurso(String nome, int vagas, int cargaHoraria) {
+		Atividade atividade = new MiniCurso(nome, vagas, cargaHoraria, this);
+		this.atividades.append(atividade);
+		return atividade;
 	}
 
-	public EventoSatelite novoEventoSatelite(String nome, Tipo seminario) {
-		EventoSatelite evento = new EventoSatelite(nome, tipo, this);
-		eventoSatelite.append(evento);
+	public Atividade novaAtividade(String nome, String ministrante, int vagas, int cargaHoraria) {
+		Atividade atividade = new Oficina(nome, ministrante, vagas, cargaHoraria, this);
+		this.atividades.append(atividade);
+		return atividade;
+	}
+
+	public Atividade novaAtividade(String nome, String ministrante) {
+		Atividade atividade = new Palestra(nome, ministrante, this);
+		this.atividades.append(atividade);
+		return atividade;
+	}
+
+	public EventoSatelite novoEventoSeminario(String nome) {
+		EventoSatelite evento = new EventoSeminario(nome, this.cidade, this);
+		this.eventosSatelites .append(evento);
+		return evento;
+	}
+
+	public EventoSatelite novoEventoMostra(String string) {
+		EventoSatelite evento = new EventoMostra(nome, this.cidade, this);
+		this.eventosSatelites .append(evento);
 		return evento;
 	}
 
 	public EventoSatelite[] getEventosSatelites() {
-		EventoSatelite[] evento = new EventoSatelite[eventoSatelite.count()];
+		EventoSatelite[] evento = new EventoSatelite[this.eventosSatelites.count()];
 		for (int i = 0; i < evento.length; i++) {
-			evento[i] = (EventoSatelite) eventoSatelite.get(i);
+			evento[i] = (EventoSatelite) this.eventosSatelites.get(i);
 		}
 		return evento;
-}
-	
 	}
+	
+	
 
 
+}
